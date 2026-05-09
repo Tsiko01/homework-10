@@ -1,0 +1,477 @@
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *{ 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  body {
+    --bg: #0e0c09;
+    --surface: #1a1610;
+    --text: #f0ead8;
+    --muted: #8a7e6d;
+    --accent: #e07840;
+    --accent2: #4a9ab8;
+    --accent3: rgb(209, 188, 71);
+    --border: rgba(255,255,255,0.08);
+    --shadow: rgba(0,0,0,0.4);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); }
+
+  /* Header.css */
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14, 12, 9, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+  }
+
+  header ul {
+    max-width: 860px;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 64px;
+  }
+
+  header ul li a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  header ul li a:hover {
+    color: var(--text);
+    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  header ul li a.active {
+    color: var(--accent);
+    border-color: rgba(224, 120, 64, 0.3);
+    background: rgba(224, 120, 64, 0.06);
+  }
+
+  .page {
+    min-height: 100vh;
+    background: var(--bg);
+    transition: background 0.4s;
+    padding: 2rem;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    min-height: 70vh;
+    padding: 4rem 0 3rem;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  h1.name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  h1.name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .surname {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+  }
+  .hero-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 4px 80px 4px 80px;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.4s;
+  }
+  .hero-img:hover { filter: grayscale(0%); }
+
+  .hero-img-deco {
+    position: absolute;
+    inset: -12px;
+    border: 2px solid var(--accent);
+    border-radius: 4px 80px 4px 80px;
+    pointer-events: none;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+  }
+  .hero-img-wrap:hover .hero-img-deco { opacity: 0.6; }
+
+  /* Info Cards */
+  .info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 4rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 16px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--shadow); }
+
+  h1.card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  h1.card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  /* Hobbies */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title span { color: var(--accent); font-style: italic; }
+
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .hobby-card {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 16px var(--shadow);
+    transition: transform 0.3s;
+  }
+  .hobby-card:hover { transform: translateX(6px); }
+
+  .hobby-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  h1.hobby-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+  .hobby-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-img-wrap { order: -1; max-width: 280px; margin: 0 auto; }
+    .info-row { grid-template-columns: 1fr 1fr; }
+    .hobbies-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: span 1; }
+  }
+
+  /* Project.css */
+
+h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h2 span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.projets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0 4rem;
+}
+
+.projets > div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projets > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.projets img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px;
+  filter: grayscale(20%);
+  transition: filter 0.3s;
+}
+
+.projets > div:hover img {
+  filter: grayscale(0%);
+}
+
+.projets p {
+  margin: 0;
+  width: 100%;
+}
+
+.projets a {
+  display: block;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.projets a:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Live link gets accent color */
+.projets p:last-child a {
+  color: var(--accent);
+  border-color: rgba(224, 120, 64, 0.3);
+}
+
+.projets p:last-child a:hover {
+  background: rgba(224, 120, 64, 0.08);
+  border-color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .projets {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* HobbyDetails.css */
+
+.hobby-detail {
+  padding: 3rem 0 4rem;
+}
+
+.button_1 {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.button_1:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.h_1 {
+  font-family: "Edu AU VIC WA NT Guides", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.h_1::first-letter {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.p_1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 560px;
+  border-left: 2px solid var(--accent);
+}
+.p_100{
+  color: #e36a29;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.p_100:hover{
+    color: var(--text);
+    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    
+}
+p{
+
+}
+/* Hobby.css */
+
+.Hobi {
+  font-family: 'DM Sans', sans-serif;;
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hobbies-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding-bottom: 5rem;
+}
+
+.hobbies-grid a {
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px var(--shadow);
+  border-color: rgba(224, 120, 64, 0.4);
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .hobbies-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
